@@ -8,31 +8,32 @@ int main()
 
     while (tests--)
     {
-        int mainLen, subLen;
-        cin>>mainLen>>subLen;
+        // Input
+        int len1, len2;
+        cin >> len1 >> len2;
 
-        string mainStr, subStr;
-        cin>>mainStr>>subStr;
+        string str1, str2;
+        cin >> str1 >> str2;
 
-        int count = 0, temp = 6;
+        // Solve
+        int count = 0, iteration = 6;
         bool flag = false;
-
-        while(temp--)
+        
+        while(iteration--)
         {
-            if(mainStr.find(subStr) != string :: npos)
+            if(str1.find(str2) != string :: npos)
             {
                 flag = true;
                 break;
             }
             count++;
-            mainStr += mainStr;
+            str1 += str1;
         }
 
         if(flag)
             cout<<count<<endl;
         else
             cout<<-1<<endl;
-
     }
 
     return 0;
