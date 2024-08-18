@@ -11,25 +11,21 @@ int main()
         int a, b, c;
         cin >> a >> b >> c;
 
-        if (a == b && b == c)
+        if (c & 1)
         {
-            if (a & 1)
+            if (b > a)
+                cout << "Second";
+            else
+                cout << "First";
+        }
+
+        else
+        {
+            if (a > b)
                 cout << "First";
             else
                 cout << "Second";
         }
-
-        else if (a > b + c)
-            cout << "First";
-
-        else if (c > a + b)
-            cout << "Second";
-        
-        else if (a + b > c)
-            cout<<"First"; 
-        
-        else
-            cout<< "Second";
 
         cout << endl;
     }
