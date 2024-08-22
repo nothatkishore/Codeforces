@@ -12,27 +12,44 @@ using namespace std;
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);
 
+
+set<int> st;
+bool check(int num)
+{
+    string str = to_string(num);
+    int count = 0;
+    for(char x : str)
+    {
+        if(x != '0')
+            count++;
+    }
+
+    if(count > 1)
+        return false;
+    return true; 
+}
+
 void solve()
 {
-    int n, operations = 0;
-    cin>>n;
-    vi nums(n);
-    for(int i = 0 ; i < n ; i++)
-        cin>>nums[i];
-    
-    int ptr1 = 0, ptr2 = 1;
-    while (ptr2 < n)
+    int n, count = 0;
+    cin >> n;
+
+    for(int x : st)
     {
-        if(((nums[ptr1] ^ nums[ptr2]) & 1) == 0)
-            operations++;
-        ptr1++;
-        ptr2++;
+        if(x <= n)
+            count++;
     }
-    cout<<operations<<endl;
+
+    cout<<count<<endl;
 }
 
 int main()
 {
+    for (int i = 1; i < 1e7; i++)
+    {
+        if (check(i))
+            st.insert(i);
+    }
     fast_io;
     int t;
     cin >> t;
