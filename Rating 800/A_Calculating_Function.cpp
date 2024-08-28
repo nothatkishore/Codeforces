@@ -36,10 +36,6 @@ void solve()
         }
     }
 
-    else
-    {
-
-    }
 }
 
 int main()
